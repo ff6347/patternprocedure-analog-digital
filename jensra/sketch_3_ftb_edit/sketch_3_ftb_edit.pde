@@ -35,8 +35,6 @@ Danke an @fabiantheblind (Fabian Morón Zirfas), FH Potsdam
 */
 
 
-
-
 int anzahl = int(random(3,6)); //Anzahl der Dreiecke bestimmen
 Dreieck[] treeanglez = new Dreieck[anzahl]; //Array mit entsprechend vielen Dreiecken anlegen
 
@@ -82,24 +80,34 @@ class Dreieck{
   Dreieck(float _x, float _y){
     pos = new PVector(_x,_y);
   }
-
-private void drawcurvevertex(ArrayList <PVector> coords) {
+/**
+ * Diese Funktion ist private und von aussen nicht zu erreichen
+ * sie zeichnet alle definierten Koordianten in einem Loop
+ * @Argument Multidimensionales Array aus int
+ * @return nothing
+ */
+private void drawcurvevertex(int [][] positions) {
+   ArrayList <PVector> coords = buildcoordslist(positions);
   beginShape(); //Formzeichnung beginnt
 
   for(int i = 0;i < coords.size(); i++){
       curveVertex(coords.get(i).x, coords.get(i).y); //geleiteter Startpunkt
-
   }
   endShape(); //Formzeichnung endet
 
 }
 
-private ArrayList <PVector> buildcoordslist(int [][] positions){
+/**
+ * Diese private Helfer Funktion erzeugt aus einer liste an Positionen eine
+ * ArrayList aus PVector
+ * @Argument Multidimensionales Array aus int
+ * @return ArrayList <PVector>
+ */
+private ArrayList <PVector> buildcoordslist( int [][] positions){
   ArrayList<PVector> thelist =  new ArrayList <PVector>();
   for(int i = 0; i < positions.length;i++){
     thelist.add(new PVector(positions[i][0],positions[i][1]));
   }
-  
   return thelist;
 }
 
@@ -137,137 +145,27 @@ void display(){
  formvariation = int(random(0,3));
 
  if (formvariation == 1){
-
- /*
- FORM A1
+/**
+ * edit by @fabiantheblind DRY
+ * http://en.wikipedia.org/wiki/Don't_repeat_yourself
+ * Das koennte noch verbessert werden.
+ *
  */
-
-int [][] positions1 = {{0,  -10},{0,0},{-10,-20},{40,-50},{0, -60},{0, -60}};
-ArrayList <PVector> list1 = buildcoordslist(positions1);
-drawcurvevertex(list1);
-
-
-//beginShape(); //Formzeichnung beginnt
-//
-//  curveVertex(0,  -10); //geleiteter Startpunkt
-//  curveVertex(0,0); //Startpunkt der Kurve
-//
-//  curveVertex(-10,-20); //Zwischenpunkt 1
-//  curveVertex(40,-50); //Zwischenpunkt 2
-//
-//  curveVertex(0, -60); //Endpunkt
-//  curveVertex(0, -60); //Richtung des Endpunktes
-//
-//endShape(); //Formzeichnung endet
-
-
-
-/*
- FORM A2
- */
- int [][] positions2 = {{0,  -90},{0,-60},{-50,-90},{30,-110},{0, -120},{0, -120}};
- ArrayList <PVector> list2 = buildcoordslist(positions1);
-drawcurvevertex(list2);
-
-//beginShape(); //Formzeichnung beginnt
-//
-//  curveVertex(0,  -90); //geleiteter Startpunkt
-//  curveVertex(0,-60); //Startpunkt der Kurve
-//
-//  curveVertex(-50,-90); //Zwischenpunkt 1
-//  curveVertex(30,-110); //Zwischenpunkt 2
-//
-//  curveVertex(0, -120); //Endpunkt
-//  curveVertex(0, -120); //Richtung des Endpunktes
-//
-//endShape(); //Formzeichnung endet
-
+    int [][] positions1 = {{0,  -10},{0,0},{-10,-20},{40,-50},{0, -60},{0, -60}};//FORM A1
+    int [][] positions2 = {{0,  -90},{0,-60},{-50,-90},{30,-110},{0, -120},{0, -120}}; // FORM A2
+    drawcurvevertex(positions1);
+    drawcurvevertex(positions2);
  } else if (formvariation == 2) {
-
-   /*
- FORM B1
- */
- 
-  int [][] positions3 =   {{0,  -10},  {0,0},{40,-20},  {-10,-50},{0, -60},  {0, -60}};
- ArrayList <PVector> list3 = buildcoordslist(positions3);
-drawcurvevertex(list3);
-
-//beginShape(); //Formzeichnung beginnt
-//
-//  curveVertex(0,  -10); //geleiteter Startpunkt
-//  curveVertex(0,0); //Startpunkt der Kurve
-//
-//  curveVertex(40,-20); //Zwischenpunkt 1
-//  curveVertex(-10,-50); //Zwischenpunkt 2
-//
-//  curveVertex(0, -60); //Endpunkt
-//  curveVertex(0, -60); //Richtung des Endpunktes
-//
-//endShape(); //Formzeichnung endet
-
-/*
- FORM B2
- */
- int [][] positions4 = {{0,  -90},  {0,-60},  {30,-90},  {-50,-110},  {0, -190},  {0, -190}}; 
-  ArrayList <PVector> list4 = buildcoordslist(positions4);
-drawcurvevertex(list4);
-//beginShape(); //Formzeichnung beginnt
-//
-//  curveVertex(0,  -90); //geleiteter Startpunkt
-//  curveVertex(0,-60); //Startpunkt der Kurve
-//
-//  curveVertex(30,-90); //Zwischenpunkt 1
-//  curveVertex(-50,-110); //Zwischenpunkt 2
-//
-//  curveVertex(0, -190); //Endpunkt
-//  curveVertex(0, -190); //Richtung des Endpunktes
-//
-//endShape(); //Formzeichnung endet
-
+    int [][] positions3 =   {{0,  -10},  {0,0},{40,-20},  {-10,-50},{0, -60},  {0, -60}};/* FORM B1 */
+    int [][] positions4 = {{0,  -90},  {0,-60},  {30,-90},  {-50,-110},  {0, -190},  {0, -190}};/* FORM B2 */
+    drawcurvevertex(positions3);
+    drawcurvevertex(positions4);
  } else {
-
-   /*
- FORM C1
- */
-int [][] positions5 =   {{0,  -10},  {0,0},  {-20,-20},  {30,-50},  {0, -80},  {0, -80}};
- ArrayList <PVector> list5 = buildcoordslist(positions5);
-drawcurvevertex(list5);
-//beginShape(); //Formzeichnung beginnt
-//
-//  curveVertex(0,  -10); //geleiteter Startpunkt
-//  curveVertex(0,0); //Startpunkt der Kurve
-//
-//  curveVertex(-20,-20); //Zwischenpunkt 1
-//  curveVertex(30,-50); //Zwischenpunkt 2
-//
-//  curveVertex(0, -80); //Endpunkt
-//  curveVertex(0, -80); //Richtung des Endpunktes
-//
-//endShape(); //Formzeichnung endet
-
-/*
- FORM C2
- */
- 
- int [][] positions6 =   {{0,  -90},  {0,-80},  {50,-90},  {-30,-110},  {0, -120},  {0, -120}};
-  ArrayList <PVector> list6 = buildcoordslist(positions6);
-drawcurvevertex(list6);
-//beginShape(); //Formzeichnung beginnt
-//
-//  curveVertex(0,  -90); //geleiteter Startpunkt
-//  curveVertex(0,-80); //Startpunkt der Kurve
-//
-//  curveVertex(50,-90); //Zwischenpunkt 1
-//  curveVertex(-30,-110); //Zwischenpunkt 2
-//
-//  curveVertex(0, -120); //Endpunkt
-//  curveVertex(0, -120); //Richtung des Endpunktes
-//
-//endShape(); //Formzeichnung endet
-
-
+    int [][] positions5 =   {{0,  -10},  {0,0},  {-20,-20},  {30,-50},  {0, -80},  {0, -80}};/* FORM C1 */
+    int [][] positions6 =   {{0,  -90},  {0,-80},  {50,-90},  {-30,-110},  {0, -120},  {0, -120}}; /* FORM C2 */
+    drawcurvevertex(positions5);
+    drawcurvevertex(positions6);
  } //Formvariationen enden hier
-
     popMatrix(); //Matrix zurücksetzen
 
   } //Ende display()
