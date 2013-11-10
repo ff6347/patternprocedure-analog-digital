@@ -38,4 +38,4 @@ Dieser Code ist ausdrücklich zur Weiterverwendung durch andere gedacht.
 
 DANKSAGUNG
 ---
-Danke an @fabiantheblind (Fabian Zirfas), FH Potsdam
+Danke an @fabiantheblind (Fabian Morón Zirfas), FH Potsdam

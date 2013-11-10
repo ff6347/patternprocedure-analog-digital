@@ -30,7 +30,7 @@ dennoch im Code verbleiben sollen.
 Dieser Code ist ausdrücklich zur Weiterverwendung durch andere gedacht.
 
 DANKSAGUNG
-Danke an @fabiantheblind (Fabian Zirfas), FH Potsdam
+Danke an @fabiantheblind (Fabian Morón Zirfas), FH Potsdam
 
 */
 
@@ -55,21 +55,21 @@ void setup(){
     ypos = int(random(60,400));
     treeanglez[i] = new Dreieck(xpos,ypos); //(mehrere Instanzen der Klasse werden angelegt)
   } //Ende der Schleife
-  
+
   size(800,500); //Fenstergröße festlegen
   background(255); //Hintergrundfarbe festlegen
-  
+
   //Schleife zeigt alle Dreiecke an
   for (int i = 0; i<anzahl; i++){
-   treeanglez[i].display(); 
+   treeanglez[i].display();
   }
-  
+
 } //Ende setup()
 
 
 //ständige Ausführung des Inhalts in draw()
 void draw(){
-  
+
 } //Ende draw()
 
 
@@ -78,34 +78,34 @@ void draw(){
 class Dreieck{
   //Attribute (?)
   PVector pos; //Vektor anlegen, Grundlage für Dreiecke
-  
+
   Dreieck(float _x, float _y){
     pos = new PVector(_x,_y);
   }
-  
+
 
 void display(){
 
     noFill(); //keine Füllung der Dreiecke oder anderer Formen
-    
+
     rectMode(CENTER); //"Anfasspunkt" der Objekte auf MITTE setzen
     pushMatrix(); //Matrix auf Mittelpunkt des Objektes setzen:
     translate(pos.x, pos.y); //Punkt (0|0) neu setzen
-    
+
     rotation = random(0,7); //zufälligen Rotationswert bestimmen
     rotate(PI/rotation); //Rotation
-    
+
     //zufällige Breite und Höhe bestimmen
     breite = int(random(10,70));
     hoehe = int(random(30,80));
-     
+
      //Dreieck anlegen
     triangle(-(breite),hoehe,breite,hoehe,0,0);
-    
+
     //Länge der Linie bestimmen und Linie anlegen
     laenge = int(random(30,90));
 
- 
+
  //Für Vertex-Zeichnungen mindestens 4 curveVertex-Befehle
 //Dabei ist der 1. Befehl der "geleitete" Startpunkt, bestimmt also die Startrichtung
 //Der 2. Befehl ist die eigentliche Startkoordinate
@@ -113,12 +113,12 @@ void display(){
 //Der 4. Befehl bestimmt den "geleiteten" Endpunkt
 
 //Sofern ein fünfter Befehl eingefügt wird, wird die Kurve zwischen 2.,3., und 5. Punkt gezeichnet
- 
+
  //VARIATIONEN VON KURVEN
  formvariation = int(random(0,3));
- 
+
  if (formvariation == 1){
- 
+
  /*
  FORM A1
  */
@@ -152,9 +152,9 @@ beginShape(); //Formzeichnung beginnt
   curveVertex(0, -120); //Richtung des Endpunktes
 
 endShape(); //Formzeichnung endet
-        
+
  } else if (formvariation == 2) {
-   
+
    /*
  FORM B1
  */
@@ -186,9 +186,9 @@ beginShape(); //Formzeichnung beginnt
   curveVertex(0, -190); //Richtung des Endpunktes
 
 endShape(); //Formzeichnung endet
-   
+
  } else {
-   
+
    /*
  FORM C1
  */
@@ -220,11 +220,11 @@ beginShape(); //Formzeichnung beginnt
   curveVertex(0, -120); //Richtung des Endpunktes
 
 endShape(); //Formzeichnung endet
-   
-   
+
+
  } //Formvariationen enden hier
 
     popMatrix(); //Matrix zurücksetzen
-    
+
   } //Ende display()
 } //Ende Dreieck
