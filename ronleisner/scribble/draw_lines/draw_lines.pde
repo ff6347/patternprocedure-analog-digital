@@ -26,7 +26,7 @@ strokeWeight(0.6);// pretty thin
 /**
  * Now generate some random value for the starting point
  * of the target points
- * it is smaller than the widht of the sketch minus the range
+ * it is smaller than the width of the sketch minus the range
  */
 int xstart = int(random(0, width - xrange));
 /**
