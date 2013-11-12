@@ -1,6 +1,9 @@
 ![image](screenshot.png)  
-#TITLE  
-##DESCRIPTION  
+#TITLE
+circuit on Steroids 
+##DESCRIPTION
+Generative Design. Draw Lines und Dots in right/orthogonal angles.  
 ##AUTHOR  
-Hello my name is [pfingstday](https://github.com/pfingstday) and I'd like ti say... 
+[pfingstday](https://github.com/pfingstday)
 ##LICENSE  
+MIT
