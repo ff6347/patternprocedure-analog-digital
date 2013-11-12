@@ -1,6 +1,9 @@
 ![image](screenshot.png)  
 #TITLE  
-##DESCRIPTION  
+Fragments
+##DESCRIPTION 
+Generative design. Draw multiple rectangles with two acute and two obstuse angles. avoid spaces.
 ##AUTHOR  
-Hello my name is [martinlexow](https://github.com/martinlexow) and I'd like ti say... 
-##LICENSE  
+[martinlexow](https://github.com/martinlexow)
+##LICENSE
+open source
