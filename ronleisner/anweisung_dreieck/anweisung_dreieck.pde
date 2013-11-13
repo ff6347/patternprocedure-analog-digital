@@ -1,4 +1,3 @@
-
 int startPosX;
 int startPosY;
 
@@ -18,7 +17,7 @@ void setup (){
  
   int stepsX = int(random(0, 150));
   
-  // Loop
+  // Dreieck X-Achse
 
   for(int x = 0; x < rangeX; x+=stepsX){
     line(startPosX, 0, endPosX + x, height);
@@ -29,7 +28,7 @@ void setup (){
   
   int stepsY = int(random(0, 150));
 
-  // Loop
+  // Dreieck Y-Achse
 
   for(int y = 0; y < rangeY; y+=stepsY){
     line(0, startPosY, width, endPosY + y);
