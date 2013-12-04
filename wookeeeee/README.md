@@ -1,6 +1,6 @@
 ![image](screenshot.png)  
-#TITLE  
-##DESCRIPTION  
+#analog-digital_pattern 
+##Umsetzung_der_Anweisung_processing
 ##AUTHOR  
-Hello my name is [wookeeeee](https://github.com/wookeeeee) and I'd like ti say... 
+Jinwook Yun
 ##LICENSE  
